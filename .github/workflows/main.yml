@@ -19,11 +19,18 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
+    - name: Setting up Node
+      uses: actions/setup-node@master
+      with:
+        node-version: 10.x
+  
+    - name: Installing dependencies
+      run: npm i
+      
     - name: Build the production site ⭐
       run: npm run build
 
-    # Runs a set of commands using the runners shell
+    
     - name: Firebase Deploy
       run: |
         sudo npm install -g firebase-tools
