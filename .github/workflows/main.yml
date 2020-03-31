@@ -19,6 +19,10 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    - name: Setting up Node
+      uses: actions/setup-node@master
+      with:
+        node-version: 10.x
     # Runs a single command using the runners shell
     - name: Build the production site ⭐
       run: npm run build
