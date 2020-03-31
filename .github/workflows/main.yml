@@ -23,11 +23,14 @@ jobs:
       uses: actions/setup-node@master
       with:
         node-version: 10.x
-    # Runs a single command using the runners shell
+  
+    - name: Installing dependencies
+      run: npm i
+      
     - name: Build the production site ⭐
       run: npm run build
 
-    # Runs a set of commands using the runners shell
+    
     - name: Firebase Deploy
       run: |
         sudo npm install -g firebase-tools
