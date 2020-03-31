@@ -4,6 +4,7 @@ import { Button, Modal, ModalFooter, ModalBody, ModalHeader, ListGroupItem, List
 import { useState } from 'react';
 import { setInterval } from 'timers';
 import { IPerson } from '../domain/IPerson';
+import { Link } from 'react-router-dom';
 
 interface Iprops {
   children: never[]; // weird stuff 
@@ -37,9 +38,11 @@ const PersonDetails = ({person, open, modalstate}: Iprops) => {
         </ListGroup>
       </ModalBody>
       <ModalFooter>
+        <Link to={"/persons/" + person.id}>
         <Button color="primary" onClick={toggle}>
           Edit
           </Button>{' '}
+        </Link>
         <Button color="secondary" onClick={toggle}>Close</Button>
       </ModalFooter>
     </Modal>

@@ -4,6 +4,7 @@ import { Card, Button, CardTitle, CardText, Spinner, ListGroup, ListGroupItem } 
 import { RouteComponentProps } from 'react-router';
 import PersonDetails from '../components/PersonDetails';
 import { IPerson } from '../domain/IPerson';
+import { BASE_URL } from '../helpers/constans';
 
 
 interface IPersonState {
@@ -20,11 +21,6 @@ interface IProps {
   
 }
 
-const BASE_URL = "https://geny.azurewebsites.net/api/persons/";
-
-const persons = [
-  {name: "Tristan", age: 2},{name: "Tristan", age: 2},{name: "Tristan", age: 2},{name: "Tristan", age: 2}
-]
 
 class Persons extends React.Component<IProps, IPersonState> {
   showPersonDetails(personId: string) : void{
@@ -57,8 +53,7 @@ class Persons extends React.Component<IProps, IPersonState> {
     fetch(BASE_URL)
     .then(res => res.json())
     .then(data => {
-      this.setState({ personList: data, loading: false })
-      console.log(data);  
+      this.setState({ personList: data, loading: false }) 
     })
   }
 
